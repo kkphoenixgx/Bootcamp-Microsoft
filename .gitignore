@@ -1,0 +1,5 @@
+.vscode
+exercises/CSharp/*/obj
+exercises/CSharp/*/bin
+Projects/*/bin
+Projects/*/obj

@@ -120,4 +120,3 @@ switch (tipoDePagamento) {
 function executarPagamento(value){
   logMessage(`pagamento realizado no valor de ${value}`, 4)
 }
-
