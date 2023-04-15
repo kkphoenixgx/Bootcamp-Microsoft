@@ -8,10 +8,13 @@ namespace Projects.HotelChallange.Models
 {
     public class Reservation
     {
-        public List<People> Guests{ get; set; }
-        public List<Suite> suiteList{ get; set; }
+        public List<People> Guests = new List<People>();
+        public List<Suite> SuitesReserved = new List<Suite>();
+        
+        public int ReservedDays{ get; set; }
 
-        public int ReservedDays;
+
+        // ----------- Constructors -----------
 
         public Reservation(int reservedDays){
             ReservedDays = reservedDays;
@@ -20,19 +23,25 @@ namespace Projects.HotelChallange.Models
         // ----------- Main Methods -----------
 
         public void SignInGuest(List<People> guests){
+
             foreach(People guest in guests){
+                if(guest == null) return; 
+            
                 Guests.Add(guest);
             }
         }
-        public void SignInSuite(Suite Suite){
-            
+        public void SignInSuite(Suite suite){
+            SuitesReserved.Add(suite);
+
+            Console.WriteLine("Suite reservada com sucesso");
         }
 
-        public decimal diaryCalc(){
-            decimal totalValue = 0;
+        public decimal diaryCalc(Suite suite){
+            decimal totalValue = ReservedDays * suite.DiaryValue;
             
             return totalValue;
         }
+
 
     }
 }
